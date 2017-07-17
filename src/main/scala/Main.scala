@@ -1,9 +1,6 @@
 import scala.math.sqrt
 import scala.util.Random
 
-/**
-  * Created by cheezy on 7/16/17.
-  */
 object Main {
   val precisionIntent = 10000 // How many simulations to run for a single generation: Higher == Longer per Generation
   val generationCount = 100 // How many generations to run for each simulation: Higher == Longer per Generation
