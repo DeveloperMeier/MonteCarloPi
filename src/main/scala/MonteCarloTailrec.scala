@@ -1,14 +1,18 @@
+import scala.annotation.tailrec
 import scala.math.sqrt
 import scala.util.Random
 
 object MonteCarloRec {
-  def main(args: Array[String]): Unit = println(
-    generation(
-      monteCarlo(100, isInCircle),
-      monteCarlo(100, isInCircle),
-      100000
+  def main(args: Array[String]): Unit = {
+    val precision = 100000
+    println(s"Variance too small to continue: Final Resuilt is ${
+      generation(
+        monteCarlo(precision, isInCircle),
+        monteCarlo(precision, isInCircle),
+        precision
+      )}"
     )
-  )
+  }
 
   def monteCarlo(n: Int, test: () => Boolean) = Stream.continually(if (test()) 1.00 else 0.00 )
     .take(n)
@@ -19,8 +23,9 @@ object MonteCarloRec {
     sqrt(x*x + y*y) <= 1
   }
 
+  @tailrec
   def generation(p: Double, n: Double, precision: Int, gen: Int = 1): Double = {
-    if (Math.abs(p - n) < 0.000001) p else {
+    if (Math.abs(p - n) < 0.00001) p else {
       val c = monteCarlo(precision, isInCircle) * 4
       println(s"Generation #${gen}: Seeded with ${p}, ${n}")
       println("_________________________________")

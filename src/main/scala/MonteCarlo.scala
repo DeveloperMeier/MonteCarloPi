@@ -3,8 +3,8 @@ import scala.util.Random
 
 object MonteCarlo {
   val precisionIntent = 100000 // How many simulations to run for a single generation: Higher == Longer per Generation
-  val generationCount = 1000 // How many generations to run for each simulation: Higher == Longer per Generation
-  val totalGenerations = 10000 // How many generations to average: Higher == More Iterations
+  val generationCount = 100 // How many generations to run for each simulation: Higher == Longer per Generation
+  val totalGenerations = 100 // How many generations to average: Higher == More Iterations
 
   def main(args: Array[String]):Unit = {
     val generations = for {
